@@ -1,0 +1,4 @@
+chest_xray/
+*.zip
+*.pth
+__pycache__/
