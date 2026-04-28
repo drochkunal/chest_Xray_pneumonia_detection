@@ -1,46 +1,48 @@
-🩺 Chest X-Ray Classification using CNN
+# 🩺 Chest X-Ray Classification using ResNet
 📌 Project Overview
 
-This project focuses on building a Convolutional Neural Network (CNN) to classify chest X-ray images into different categories (e.g., Normal vs Pneumonia). The goal is to leverage deep learning techniques to assist in medical image analysis and automate disease detection.
+This project focuses on building a deep learning model to classify chest X-ray images using a pre-trained ResNet architecture. The objective is to detect pneumonia from X-ray images by leveraging transfer learning and convolutional neural networks.
 
-The model learns visual patterns from X-ray images and predicts the presence of abnormalities, helping demonstrate how AI can support healthcare diagnostics.
+By using ResNet, the model benefits from deep feature extraction capabilities and improved performance compared to basic CNN architectures.
 
 📊 Dataset Description
 
-The dataset consists of chest X-ray images categorized into:
+The dataset consists of labeled chest X-ray images divided into:
 
 Normal – Healthy lungs
 Pneumonia – Infected lungs
 
-The images are pre-labeled and organized into training, validation, and testing sets.
+The data is organized into training, validation, and testing sets to ensure proper evaluation.
 
 ⚙️ Project Workflow
 1. Data Preprocessing
 Image resizing and normalization
-Train-validation-test split
-Data augmentation (rotation, flipping, scaling)
-2. Model Building
-Implemented a CNN architecture with:
-Convolutional layers
-MaxPooling layers
+Data augmentation (rotation, flipping, zoom)
+Splitting into train, validation, and test sets
+2. Model Building (Transfer Learning)
+Used ResNet (pre-trained on ImageNet)
+Frozen initial layers for feature extraction
+Added custom layers:
 Fully connected (Dense) layers
-Activation functions (ReLU, Softmax/Sigmoid)
+Dropout for regularization
+Output layer with Sigmoid activation
 3. Model Training
-Trained model on training dataset
-Used validation set to monitor performance
-Optimized using loss functions and optimizers
+Fine-tuned the network on X-ray dataset
+Used appropriate loss function (Binary Crossentropy)
+Optimized using Adam optimizer
 4. Model Evaluation
-Evaluated using:
+Evaluated performance using:
 Accuracy
-Loss
-Compared training vs validation performance
+Loss curves
+Compared training vs validation metrics to detect overfitting
 🚀 Results
-Model successfully learned patterns in X-ray images
-Achieved good classification accuracy
-Performance improved with data augmentation and tuning
+ResNet significantly improved classification performance
+Better generalization compared to basic CNN
+Data augmentation helped reduce overfitting
 🛠️ Tech Stack
 Python 🐍
 TensorFlow / Keras
+ResNet (Transfer Learning)
 NumPy
 Matplotlib
 Jupyter Notebook
@@ -53,27 +55,24 @@ Jupyter Notebook
 └── README.md
 ▶️ How to Run
 pip install tensorflow numpy matplotlib
-
-Open the notebook:
-
 jupyter notebook ChestXray_CNN.ipynb
 
 Run all cells step-by-step.
 
 📈 Key Learnings
-Understanding CNN architecture for image classification
-Importance of data preprocessing in deep learning
-Role of data augmentation in improving model performance
-Model evaluation and overfitting handling
+Transfer learning improves performance significantly
+Deep architectures like ResNet capture complex patterns
+Data augmentation helps improve generalization
+Importance of fine-tuning pre-trained models
 🔗 Future Improvements
-Use pre-trained models (ResNet, VGG16)
-Improve accuracy with hyperparameter tuning
-Deploy as a web app
-Add more medical classes for classification
+Use advanced architectures (EfficientNet, DenseNet)
+Hyperparameter tuning for better accuracy
+Deploy model using Streamlit or Flask
+Expand dataset for multi-class classification
 👤 Author
 
 Kunal Droch
 
 📌 About
 
-Deep learning project using CNN to classify chest X-ray images for detecting pneumonia and understanding medical image analysis.
+Deep learning project using ResNet-based transfer learning to classify chest X-ray images and detect pneumonia with improved accuracy.
